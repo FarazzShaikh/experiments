@@ -28,7 +28,7 @@ const f = {
   const loader = new THREE.TextureLoader();
   const disk = loader.load("./textures/circle-sprite.png");
 
-  const geometry = new THREE.IcosahedronGeometry(4, n);
+  const geometry = new THREE.IcosahedronGeometry(4, 138);
   console.log(geometry.attributes.position.count);
   const material = new CustomShaderMaterial({
     baseMaterial: TYPES.POINTS,

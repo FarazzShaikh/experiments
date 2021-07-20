@@ -1,0 +1,6 @@
+[submodule "lib/glNoise"]
+	path = lib/glNoise
+	url = https://github.com/FarazzShaikh/glNoise.git
+[submodule "lib/THREE-CustomShaderMaterial"]
+	path = lib/THREE-CustomShaderMaterial
+	url = https://github.com/FarazzShaikh/THREE-CustomShaderMaterial.git

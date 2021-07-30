@@ -41,7 +41,7 @@ export function initScene() {
   controls.enableDamping = true; // Enables inertia on the camera making it come to a more gradual stop.
   controls.dampingFactor = 0.25; // Inertia factor
 
-  return { scene, renderer, camera };
+  return { scene, renderer, camera, controls };
 }
 
 export function initHelpers() {
@@ -60,10 +60,10 @@ export function initHelpers() {
  * @param {number} dt
  * @param {Function} callback
  */
-export function render(dt, callback) {
+export function render(dt, callback, noRender) {
   callback(dt);
   controls.update();
 
-  renderer.render(scene, camera);
-  requestAnimationFrame((dt) => render(dt, callback));
+  if (!noRender) renderer.render(scene, camera);
+  requestAnimationFrame((dt) => render(dt, callback, noRender));
 }

@@ -84,9 +84,12 @@
             exampleTabs.forEach((e) => e.setAttribute("selected", "false"));
             e.target.setAttribute("selected", "true");
 
+            console.log(src);
+
             // Allow user to cmd/ctrl + click to open in new tab
             if (e.metaKey) {
               window.open(`${location.origin}${location.pathname}?src=${src}`, "_blank");
+
               return;
             }
 

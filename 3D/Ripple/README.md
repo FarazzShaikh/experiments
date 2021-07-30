@@ -11,6 +11,6 @@
 
 <br />
 <p align="center">
-    <img src="./Assets/banner.jpg"></img>
+    <img src="./Assets/rendering-1M-particles.jpg"></img>
 </p>
 <br />

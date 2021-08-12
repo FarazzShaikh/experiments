@@ -57,7 +57,7 @@
           const exampleLinks = document.querySelectorAll(".Section");
           const exampleTabs = document.querySelectorAll(".Example");
 
-          const sourcePath = "https://github.com/FarazzShaikh/experiments/tree/master/examples/";
+          const sourcePath = "https://github.com/FarazzShaikh/experiments/tree/master/";
 
           toggleLink.addEventListener("click", (e) => {
             e.preventDefault();
@@ -68,7 +68,9 @@
           let loadQuery = location.search.split("src=");
           if (loadQuery[1]) {
             iFrame.src = loadQuery[1];
-            sourceLink.href = sourcePath + loadQuery[1];
+            const split = loadQuery[1].split("/");
+            let _src = `/${split[split.length - 3]}/${split[split.length - 2]}`;
+            sourceLink.href = sourcePath + _src;
           } else {
             // choose random example to show if none linked
             let target = exampleTabs[Math.floor(Math.random() * exampleTabs.length)];
@@ -81,11 +83,10 @@
 
           function updateExample(e) {
             const split = e.target.href.split("/");
-            let src = `/${split[split.length - 3]}/${split[split.length - 2]}/${split[split.length - 1]}`;
+            let _src = `/${split[split.length - 3]}/${split[split.length - 2]}`;
+            let src = `${_src}/${split[split.length - 1]}`;
             exampleTabs.forEach((e) => e.setAttribute("selected", "false"));
             e.target.setAttribute("selected", "true");
-
-            console.log(src);
 
             // Allow user to cmd/ctrl + click to open in new tab
             if (e.metaKey) {
@@ -95,7 +96,7 @@
             }
 
             iFrame.src = e.target.href;
-            sourceLink.href = sourcePath + src;
+            sourceLink.href = sourcePath + _src;
 
             // Update search query
             history.pushState(null, null, `${location.origin}${location.pathname}?src=${src}`);
